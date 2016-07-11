@@ -5,22 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <title>LooCator</title>
-    <link rel="icon" type="image/png" href="app/img/toiletlogo.png">
-    <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <!-- endbower -->
+    <link rel="icon" type="image/png" href="img/toiletlogo.png">
     <script src="http://maps.google.com/maps/api/js"></script>
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="/app/styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <!-- endinject -->
 </head>
 
@@ -34,7 +25,7 @@
         <marker ng-repeat="bathroom in vm.bathrooms" position="{{bathroom.Latitude}},{{bathroom.Longitude}}" data="{{bathroom.Latitude}}" animation="Animation.DROP" title="{{bathroom.BathroomName}}" on-click="vm.toggleBounce(bathroom)" on-mouseover="vm.test()">
         </marker>
         <marker animation="Animation.DROP" position="{{vm.myLat}}, {{vm.myLng}}" title="Your searched location" optimized="false" icon="{
-        url:'/app/img/bluemarker2.png',
+        url:'/img/bluemarker2.png',
         scaledSize:[22,40],
         origin: [0,0],
         anchor: [11,40]
@@ -59,7 +50,7 @@
     </ng-map>
     <div class="sidePanel shadow scroll" ng-cloak ng-class="{'fadeout': vm.fade === true}">
         <div id="LogoAndSearch">
-            <img src="app/img/toiletlogoyay.png" class="img-responsive">
+            <img src="img/toiletlogoyay.png" class="img-responsive">
             <form ng-submit="vm.search(vm.address)">
                 <div id="custom-search-input">
                     <div class="input-group col-md-12">
@@ -94,14 +85,14 @@
                 <h4>{{vm.currentBathroom.Address}}</h4><a ng-href="https://www.google.com/maps/dir/Current+Location/{{vm.currentBathroom.Latitude}},{{vm.currentBathroom.Longitude}}" type="button" class="btn btn-default trans pull-right addButtonBlue">Directions</a>
                 <h5 style="display: inline-block"><b>Rating:</b> <span class="glyphicon glyphicon-star"></span>  {{vm.currentBathroom.StarRating}}</h5> ({{vm.currentBathroom.Reviews.length}} Reviews)
                 <div>
-                    <img src="\app\img\accessible.png" title="Accessble" ng-show="vm.currentBathroom.Accessible">
-                    <img src="\app\img\unisex.png" title="Unisex" ng-show="vm.currentBathroom.Unisex">
-                    <img src="\app\img\handDryer.png" title="Hand Dryer" ng-show="vm.currentBathroom.HandDryer">
-                    <img src="\app\img\tampon.png" title="Tampon Dispenser" ng-show="vm.currentBathroom.TamponDispenser">
-                    <img src="\app\img\babyChanging.png" title="Baby Changing Station" ng-show="vm.currentBathroom.BabyChangingStation">
-                    <img src="\app\img\family.png" title="Family Bathroom" ng-show="vm.currentBathroom.FamilyBathroom">
-                    <img src="\app\img\1.png" title="Capacity: One" ng-show="vm.currentBathroom.CapacityOne">
-                    <img src="\app\img\2plus.png" title="Capacity: More than One" ng-show="vm.currentBathroom.CapacityMany">
+                    <img src="\img\accessible.png" title="Accessble" ng-show="vm.currentBathroom.Accessible">
+                    <img src="\img\unisex.png" title="Unisex" ng-show="vm.currentBathroom.Unisex">
+                    <img src="\img\handDryer.png" title="Hand Dryer" ng-show="vm.currentBathroom.HandDryer">
+                    <img src="\img\tampon.png" title="Tampon Dispenser" ng-show="vm.currentBathroom.TamponDispenser">
+                    <img src="\img\babyChanging.png" title="Baby Changing Station" ng-show="vm.currentBathroom.BabyChangingStation">
+                    <img src="\img\family.png" title="Family Bathroom" ng-show="vm.currentBathroom.FamilyBathroom">
+                    <img src="\img\1.png" title="Capacity: One" ng-show="vm.currentBathroom.CapacityOne">
+                    <img src="\img\2plus.png" title="Capacity: More than One" ng-show="vm.currentBathroom.CapacityMany">
                 </div>
                 <h5><b>Comments:</b> {{vm.currentBathroom.Directions}}</h5>
                 <hr>
@@ -544,11 +535,20 @@
             </div>
         </div>
     </div>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <!-- endbower -->
     <!-- inject:js -->
-    <script src="/app/app.js"></script>
-    <script src="/app/button.js"></script>
-    <script src="/app/controller.bathroom.js"></script>
-    <script src="/app/factory.bathroom.js"></script>
+    <script src="app.js"></script>
+    <script src="button.js"></script>
+    <script src="controller.bathroom.js"></script>
+    <script src="factory.bathroom.js"></script>
     <!-- endinject -->
     </div>
 </body>

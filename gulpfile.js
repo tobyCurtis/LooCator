@@ -10,18 +10,18 @@ var gulp = require('gulp'),
 //file structure
 var jsSources = ['app/*.js'],
    cssSources = ['app/**/*.css'],
-   htmlSources = ['**/*.html'];
+   htmlSources = ['app/**/*.html'];
 
 //used for injections
-var paths = ['./bower_components/','./app/*.js','./app/**/*.css'];
+var paths = ['./app/bower_components/','./app/*.js','./app/styles/**/*.css'];
 
 
 
 gulp.task('connect', function() {
    connect.server({
-       root: '.',
+       root: './app',
        livereload: true
-   })
+   });
 });
 
 gulp.task('app', function(){
@@ -29,19 +29,9 @@ gulp.task('app', function(){
        uri: 'http://localhost:8080',
        app: 'chrome'
    };
-   gulp.src('./index.html')
+   gulp.src('./app/index.html')
        .pipe(open(options));
 });
-
-
-//create tasks that gulp will run
-gulp.task('hello', function()
-{
-    console.log("Hello, world!");
-});
-
-
-
 
 // Watch
 gulp.task('watch', function() {
@@ -52,25 +42,25 @@ gulp.task('watch', function() {
 
 gulp.task('injectables', function() {
    var sources = gulp.src(paths, {read: false});
-   return gulp.src('index.html')
+   return gulp.src('./app/index.html')
        .pipe(wiredep())
-       .pipe(inject(sources))
-       .pipe(gulp.dest('.'));
+       .pipe(inject(sources, { relative: true }))
+       .pipe(gulp.dest('./app'));
 });
 
 gulp.task('js', function() {
    gulp.src(jsSources)
-       .pipe(connect.reload())
+       .pipe(connect.reload());
 });
 
 gulp.task('html', function() {
    gulp.src(htmlSources)
-       .pipe(connect.reload())
+       .pipe(connect.reload());
 });
 
 gulp.task('css', function() {
    gulp.src(cssSources)
-       .pipe(connect.reload())
+       .pipe(connect.reload());
 });
 
 gulp.task('serve', ['connect', 'watch', 'injectables', 'app']);
