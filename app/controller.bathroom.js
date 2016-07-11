@@ -44,9 +44,6 @@
             $window.location.assign("https://loocator.herokuapp.com");
         }
 
-        // if ($window.location.href != "https://loocator.herokuapp.com") {
-        //     $window.location.href = "https://loocator.herokuapp.com";
-        // }
 
         vm.test = function() {
 

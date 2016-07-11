@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <!-- endinject -->
 </head>
+
 <body ng-controller="BathroomController as vm">
     <button type="button" class="btn btn-default closeButton shadow addButtonBlue" uib-popover="I appeared on mouse enter!" popover-trigger="mouseenter" title="Collapse the sidebar" ng-click="vm.buttonClick()" ng-show="vm.button" ng-class="{'fadeoutButton': vm.fade === true}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
     <button type="button" class="btn btn-default closeButton shadow addButtonBlue" title="Expand the sidebar" ng-click="vm.buttonClick()" ng-show="!vm.button" ng-class="{'fadeoutButton': vm.fade === true}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
@@ -103,6 +104,7 @@
                 </div>
                 <div>
                     <button type="button" data-toggle="modal" data-target="#reviewModal" class="btn btn-default btn-block addButtonBlue">Add Review</button>
+                    <button type="button" class="btn btn-default btn-block addButtonBlue" ng-click="vm.backToResults()">Back To Results</button>
                 </div>
             </div>
         </div>
