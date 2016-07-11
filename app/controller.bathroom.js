@@ -5,10 +5,10 @@
         .module('app')
         .controller('BathroomController', BathroomController);
 
-    BathroomController.$inject = ['$timeout', 'BathroomFactory', '$rootScope', 'NgMap', '$scope'];
+    BathroomController.$inject = ['$timeout', 'BathroomFactory', '$rootScope', 'NgMap', '$window'];
 
     /* @ngInject */
-    function BathroomController($timeout, BathroomFactory, $rootScope, NgMap, $scope) {
+    function BathroomController($timeout, BathroomFactory, $rootScope, NgMap, $window) {
         var vm = this;
         var currentMarker = { setAnimation: function(p) {} };
         var data = {};
@@ -37,6 +37,10 @@
         vm.check = 'test';
 
         initialize();
+
+        if ($window.location.href == "http://loocator.herokuapp.com" || "loocator.herokuapp.com") {
+            $window.location.href = "https://loocator.herokuapp.com";
+        }
 
         vm.test = function() {
 
