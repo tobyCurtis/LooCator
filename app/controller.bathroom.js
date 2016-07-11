@@ -38,9 +38,15 @@
 
         initialize();
 
-        if ($window.location.href == "http://loocator.herokuapp.com" || "loocator.herokuapp.com") {
-            $window.location.href = "https://loocator.herokuapp.com";
+        console.log($window.location.protocol);
+
+        if($window.location.protocol === "http:"){
+            $window.location.assign("https://loocator.herokuapp.com");
         }
+
+        // if ($window.location.href != "https://loocator.herokuapp.com") {
+        //     $window.location.href = "https://loocator.herokuapp.com";
+        // }
 
         vm.test = function() {
 
