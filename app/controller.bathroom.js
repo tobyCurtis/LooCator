@@ -5,10 +5,10 @@
         .module('app')
         .controller('BathroomController', BathroomController);
 
-    BathroomController.$inject = ['$timeout', 'BathroomFactory', '$rootScope', 'NgMap'];
+    BathroomController.$inject = ['$timeout', 'BathroomFactory', '$rootScope', 'NgMap', '$scope'];
 
     /* @ngInject */
-    function BathroomController($timeout, BathroomFactory, $rootScope, NgMap) {
+    function BathroomController($timeout, BathroomFactory, $rootScope, NgMap, $scope) {
         var vm = this;
         var currentMarker = { setAnimation: function(p) {} };
         var data = {};
