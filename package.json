@@ -2,7 +2,7 @@
   "name": "loocator",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "gulpfile.js",
   "dependencies": {
     "gulp-connect": "^4.0.0",
     "gulp": "^3.9.1",
