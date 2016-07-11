@@ -74,3 +74,5 @@ gulp.task('css', function() {
 });
 
 gulp.task('serve', ['connect', 'watch', 'injectables', 'app']);
+
+gulp.task('heroku', ['injectables']);
