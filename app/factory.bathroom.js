@@ -21,7 +21,7 @@
 
         function addAmenityToBathroom(bathroomId, amenityId) {
 
-            var address = "http://loocatorapi.azurewebsites.net/api/bathrooms/" + bathroomId + "/addAmenity/" + amenityId;
+            var address = "https://loocatorapi.azurewebsites.net/api/bathrooms/" + bathroomId + "/addAmenity/" + amenityId;
 
             var defer = $q.defer();
 
@@ -63,7 +63,7 @@
 
             $http({
                 method: 'GET',
-                url: 'http://loocatorapi.azurewebsites.net/api/bathrooms/location?latitude=' + lat + '&longitude=' + lng
+                url: 'https://loocatorapi.azurewebsites.net/api/bathrooms/location?latitude=' + lat + '&longitude=' + lng
             }).then(function(response) {
                 defer.resolve(response);
             }, function(error) {
@@ -96,7 +96,7 @@
 
             $http({
                 method: 'POST',
-                url: 'http://loocatorapi.azurewebsites.net/api/bathrooms/',
+                url: 'https://loocatorapi.azurewebsites.net/api/bathrooms/',
                 data: data
 
             }).then(function(response) {
@@ -117,7 +117,7 @@
 
             $http({
                 method: 'POST',
-                url: 'http://loocatorapi.azurewebsites.net/api/reviews',
+                url: 'https://loocatorapi.azurewebsites.net/api/reviews',
                 data: data
 
             }).then(function(response) {
