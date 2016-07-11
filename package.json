@@ -2,7 +2,7 @@
   "name": "loocator",
   "version": "1.0.0",
   "description": "",
-  "main": "server/app.js",
+  "main": "app.js",
   "dependencies": {
     "bower": "^1.7.9",
     "express": "^4.14.0",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server/app.js",
+    "start": "node app.js",
     "postinstall": "bower install"
   },
   "repository": {
