@@ -35,15 +35,16 @@
         vm.starCheck = false;
         vm.amenities = {};
         vm.check = 'test';
+        vm.map = {};
+        vm.a = 4;
 
         initialize();
 
         console.log($window.location.protocol);
 
-        if($window.location.protocol === "http:"){
-            $window.location.assign("https://loocator.herokuapp.com");
-        }
-
+        // if($window.location.protocol === "http:"){
+        //     $window.location.assign("https://loocator.herokuapp.com");
+        // }
 
         vm.test = function() {
 
@@ -52,6 +53,10 @@
             vm.infoWindow = findByLat(this.data);
 
 
+        };
+
+        vm.test2 = function(){
+            console.log($window.innerWidth);
         };
 
         vm.addB = function() {
@@ -314,6 +319,9 @@
             $timeout(function() {
                 vm.button = !vm.button;
             }, 300);
+
+            $("#map").css("height", "94%");
+            google.maps.event.trigger(vm.map, "resize");
         };
 
         //Initialize search for current location
@@ -391,6 +399,8 @@
                 $timeout(function() {
 
                     NgMap.getMap({ id: 'map' }).then(function(map) {
+                        console.log(map);
+                        vm.map = map;
 
                         //set up conditions if the search doesn't return any results
                         if (vm.bathrooms.length === 0) {
