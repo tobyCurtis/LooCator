@@ -42,9 +42,9 @@
 
         console.log($window.location.protocol);
 
-        // if($window.location.protocol === "http:"){
-        //     $window.location.assign("https://loocator.herokuapp.com");
-        // }
+        if($window.location.protocol === "http:"){
+            $window.location.assign("https://loocator.herokuapp.com");
+        }
 
         vm.test = function() {
 
