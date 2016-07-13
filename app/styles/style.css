@@ -410,6 +410,12 @@ textarea {
         background-color: white;
         z-index: 5;
     }
+    
+    .keyboardFix:focus
+    {
+        height: 25px;
+    }
+
     /* modal */
     
     form.go-right {
