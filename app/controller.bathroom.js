@@ -40,8 +40,6 @@
 
         initialize();
 
-        console.log($window.location.protocol);
-
         // if($window.location.protocol === "http:"){
         //     $window.location.assign("https://loocator.herokuapp.com");
         // }
@@ -317,7 +315,6 @@
 
 
             //need to do this if screen widht less than 433
-            console.log($window.innerWidth);
             if ($window.innerWidth <= 432) {
                 if (vm.fade === false) {
                     $("#map").css("height", "88%");
@@ -334,6 +331,10 @@
                 vm.button = !vm.button;
             }, 300);
 
+        };
+
+        vm.closeInfoWindow = function(){
+            vm.map.infoWindows.bar.close();
         };
 
         //Initialize search for current location
@@ -411,7 +412,6 @@
                 $timeout(function() {
 
                     NgMap.getMap({ id: 'map' }).then(function(map) {
-                        console.log(map);
                         vm.map = map;
 
                         //set up conditions if the search doesn't return any results

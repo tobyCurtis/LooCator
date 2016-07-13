@@ -35,7 +35,7 @@
         </div>
     </div>
     <ng-map id="map" map-type-control="false" zoom-to-include-markers="auto" ng-class="{'mapFadeOut': vm.fade === true}">
-        <marker ng-repeat="bathroom in vm.bathrooms" position="{{bathroom.Latitude}},{{bathroom.Longitude}}" data="{{bathroom.Latitude}}" animation="Animation.DROP" title="{{bathroom.BathroomName}}" on-click="vm.toggleBounce(bathroom)" on-mouseover="vm.test()">
+        <marker ng-repeat="bathroom in vm.bathrooms" position="{{bathroom.Latitude}},{{bathroom.Longitude}}" data="{{bathroom.Latitude}}" animation="Animation.DROP" title="{{bathroom.BathroomName}}" on-click="vm.toggleBounce(bathroom)" on-mouseover="vm.test()" on-mouseout="vm.closeInfoWindow()">
         </marker>
         <marker animation="Animation.DROP" position="{{vm.myLat}}, {{vm.myLng}}" title="Your searched location" optimized="false" icon="{
         url:'/img/bluemarker2.png',
