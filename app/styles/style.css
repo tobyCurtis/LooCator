@@ -341,7 +341,7 @@ textarea {
 /*Media Queries*/
 
 /* mobile */
-@media screen and (max-width: 432px) and (max-aspect-ratio: 13/9) {
+@media screen and (max-width: 432px) {
     .sidePanel {
         width: 100%;
         height: 60%;
@@ -353,9 +353,9 @@ textarea {
     }
     
     #map {
-        height: 34%;
+        height: 32%;
         position: relative;
-        top: 6%;
+        top: 8%;
         z-index: 0;
     }
     
@@ -405,7 +405,7 @@ textarea {
         justify-content: center;
         position: absolute;
         top: 0;
-        height: 6%;
+        height: 8%;
         width: 100%;
         background-color: white;
         z-index: 5;

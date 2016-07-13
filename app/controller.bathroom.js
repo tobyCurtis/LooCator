@@ -163,39 +163,51 @@
                     data.Unisex = false;
                 }
 
+                if (isButtonChecked('#handDryer')) {
+                    data.HandDryer = true;
+                } else {
+                    data.HandDryer = false;
+                }
+
+                if (isButtonChecked('#tamponDispenser')) {
+                    data.TamponDispenser = true;
+                } else {
+                    data.TamponDispenser = false;
+                }
+
+                if (isButtonChecked('#babyChangingTable')) {
+                    data.BabyChangingStation = true;
+                } else {
+                    data.BabyChangingStation = false;
+                }
+
+                if (isButtonChecked('#familyBathroom')) {
+                    data.FamilyBathroom = true;
+                } else {
+                    data.FamilyBathroom = false;
+                }
+
+                if (isButtonChecked('#capacityOne')) {
+                    data.CapacityOne = true;
+                } else {
+                    data.CapacityOne = false;
+                }
+
+                if (isButtonChecked('#capacityMany')) {
+                    data.CapacityMany = true;
+                } else {
+                    data.CapacityMany = false;
+                }
+
                 BathroomFactory.postBathroom(data).then(function(response) {
+
                     getBathrooms(data.Latitude, data.Longitude);
 
                     vm.results = false;
                     vm.singleResult = true;
 
-                    amenities = {};
-
-                    if (isButtonChecked('#handDryer')) {
-                        BathroomFactory.addAmenityToBathroom(response.data.BathroomId, 17);
-                    }
-
-                    if (isButtonChecked('#tamponDispenser')) {
-                        BathroomFactory.addAmenityToBathroom(response.data.BathroomId, 18);
-                    }
-
-                    if (isButtonChecked('#babyChangingTable')) {
-                        BathroomFactory.addAmenityToBathroom(response.data.BathroomId, 19);
-                    }
-
-                    if (isButtonChecked('#familyBathroom')) {
-                        BathroomFactory.addAmenityToBathroom(response.data.BathroomId, 20);
-                    }
-
-                    if (isButtonChecked('#capacityOne')) {
-                        BathroomFactory.addAmenityToBathroom(response.data.BathroomId, 21);
-                    }
-
-                    if (isButtonChecked('#capacityMany')) {
-                        BathroomFactory.addAmenityToBathroom(response.data.BathroomId, 22);
-                    }
-
                 });
+
 
             });
         };
@@ -317,10 +329,10 @@
             //need to do this if screen widht less than 433
             if ($window.innerWidth <= 432) {
                 if (vm.fade === false) {
-                    $("#map").css("height", "88%");
+                    $("#map").css("height", "86%");
                     google.maps.event.trigger(vm.map, "resize");
                 } else {
-                    $("#map").css("height", "34%");
+                    $("#map").css("height", "32%");
                     google.maps.event.trigger(vm.map, "resize");
                 }
 
@@ -333,7 +345,7 @@
 
         };
 
-        vm.closeInfoWindow = function(){
+        vm.closeInfoWindow = function() {
             vm.map.infoWindows.bar.close();
         };
 
