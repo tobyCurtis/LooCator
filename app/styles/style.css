@@ -411,10 +411,6 @@ textarea {
         z-index: 5;
     }
     
-    .keyboardFix:focus
-    {
-        height: 25px;
-    }
 
     /* modal */
     

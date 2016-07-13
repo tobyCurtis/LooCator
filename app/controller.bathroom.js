@@ -36,13 +36,21 @@
         vm.amenities = {};
         vm.check = 'test';
         vm.map = {};
-        vm.a = 4;
+        vm.button = {};
+        var settings = {
+            on: {
+                icon: 'glyphicon glyphicon-check'
+            },
+            off: {
+                icon: 'glyphicon glyphicon-unchecked'
+            }
+        };
 
         initialize();
 
-        // if($window.location.protocol === "http:"){
-        //     $window.location.assign("https://loocator.herokuapp.com");
-        // }
+        if($window.location.protocol === "http:"){
+            $window.location.assign("https://loocator.herokuapp.com");
+        }
 
         vm.test = function() {
 
@@ -342,6 +350,54 @@
             $timeout(function() {
                 vm.button = !vm.button;
             }, 300);
+
+        };
+
+        vm.buttonVerification = function() {
+            $timeout(function() {
+
+                if (isButtonChecked('#capacityOne') && !isButtonChecked('#capacityMany')) {
+                    vm.button.one = true;
+                    console.log("button one is checked");
+                }
+                if (!isButtonChecked('#capacityOne') && isButtonChecked('#capacityMany')) {
+                    vm.button.many = true;
+                    console.log("button many is checked");
+                }
+                if (isButtonChecked('#capacityOne') && isButtonChecked('#capacityMany')) {
+                    if (vm.button.many === true) {
+                        console.log("both are checked and many was first");
+                        $('#capacityMany')
+                            .removeClass('btn-primary active')
+                            .addClass('btn-default');
+
+                        $('#capacityMany').data('state', "off");
+
+                        // Set the button's icon
+                        $('#capacityMany').find('.state-icon')
+                            .removeClass()
+                            .addClass('state-icon ' + settings[$('#capacityMany').data('state')].icon);
+
+                        vm.button.many = false;
+                    }
+                    if (vm.button.one === true) {
+                        console.log("both are checked and one was first");
+                        $('#capacityOne')
+                            .removeClass('btn-primary active')
+                            .addClass('btn-default');
+
+                        $('#capacityOne').data('state', "off");
+
+                        // Set the button's icon
+                        $('#capacityOne').find('.state-icon')
+                            .removeClass()
+                            .addClass('state-icon ' + settings[$('#capacityOne').data('state')].icon);
+
+                        vm.button.one = false;
+                    }
+                }
+
+            }, 100);
 
         };
 

@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="input-group">
-                    <input type="text" class="form-control keyboardFix" placeholder="Search for..." ng-model="vm.address">
+                    <input type="text" class="form-control" placeholder="Search for..." ng-model="vm.address">
                     <span class="input-group-btn sib">
                             <button class="btn btn-default sib" type="submit" ng-click="vm.search(vm.address)">Go!</button>
                         </span>
@@ -521,11 +521,11 @@
                                         <input type="checkbox" class="hidden" />
                                     </span>
                                     <span class="button-checkbox">
-                                        <button type="button" class="btn trans marginBottom" id="capacityOne" data-color="primary">Capacity: 1</button>
+                                        <button type="button" class="btn trans marginBottom" id="capacityOne" data-color="primary" ng-click="vm.buttonVerification()">Capacity: 1</button>
                                         <input type="checkbox" class="hidden" />
                                     </span>
                                     <span class="button-checkbox">
-                                        <button type="button" class="btn trans marginBottom" id="capacityMany" data-color="primary">Capacity: 2+</button>
+                                        <button type="button" class="btn trans marginBottom" id="capacityMany" data-color="primary" ng-click="vm.buttonVerification()">Capacity: 2+</button>
                                         <input type="checkbox" class="hidden" />
                                     </span>
                                 </div>
