@@ -416,6 +416,10 @@ textarea {
         width: 90%;
         margin: 20px;
     }
+
+    .smallText{
+        font-size: 0.8em;
+    }
 }
 
 
