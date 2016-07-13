@@ -34,11 +34,17 @@ html {
 
 /*Side Panel*/
 
-[ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important;
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
+    display: none !important;
 }
 
 .xout {
+    display: none;
+}
+
+.mobileSearch {
     display: none;
 }
 
@@ -334,7 +340,7 @@ textarea {
 
 /*Media Queries*/
 
-/* Portrait and Landscape */
+/* mobile */
 @media screen and (max-width: 432px) {
     .sidePanel {
         width: 100%;
@@ -347,8 +353,9 @@ textarea {
     }
     
     #map {
-        height: 40%;
+        height: 34%;
         position: relative;
+        top: 6%;
         z-index: 0;
     }
     
@@ -369,20 +376,10 @@ textarea {
     }
     
     .menuButton {
-/*        position: absolute;
-        top: 40%;
-        left: 85%;
-        z-index: 500;
-        transition: transform 0.3s;*/
         display: none;
     }
     
     .closeButton {
-/*        position: absolute;
-        left: 80%;
-        top: 40%;
-        z-index: 500;
-        transition: transform 0.3s;*/
         display: none;
     }
     
@@ -399,10 +396,29 @@ textarea {
         background-color: white;
         z-index: 5;
         justify-content: center;
-
     }
+    /* mobile search box */
+    
+    .mobileSearch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        height: 6%;
+        width: 100%;
+        background-color: white;
+        z-index: 5;
+    }
+}
 
-
+/* Not mobile */
+@media screen and (min-width: 432px) {
+    #map {
+        height: 100%;
+        position: relative;
+        z-index: 0;
+    }
 }
 
 }

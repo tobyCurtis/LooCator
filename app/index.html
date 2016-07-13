@@ -19,7 +19,21 @@
     <button type="button" class="btn btn-default closeButton shadow addButtonBlue" title="Collapse the sidebar" ng-click="vm.buttonClick()" ng-show="vm.button" ng-class="{'fadeoutButton': vm.fade === true}"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></button>
     <button type="button" class="btn btn-default closeButton shadow addButtonBlue" title="Expand the sidebar" ng-click="vm.buttonClick()" ng-show="!vm.button" ng-class="{'fadeoutButton': vm.fade === true}"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></button>
     <button type="button" title="Back to the results" class="btn btn-default menuButton shadow addButtonBlue" aria-hidden="true" ng-show="vm.singleResult" ng-click="vm.backToResults()" ng-class="{'fadeoutButton': vm.fade === true}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></button>
-<!--     <button type="button" style="position: absolute; left: 700px; z-index: 105" ng-click="vm.test2()">lkjkhjkahdjkahsdjkhajskhdjkashdjkahsdalknsdkasjdl</button> -->
+    <!--     <button type="button" style="position: absolute; left: 700px; z-index: 105" ng-click="vm.test2()">lkjkhjkahdjkahsdjkhajskhdjkashdjkahsdalknsdkasjdl</button> -->
+    <div class="mobileSearch">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." ng-model="vm.address">
+                    <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="vm.search(vm.address)">Go!</button>
+                        </span>
+                </div>
+                <!-- /input-group -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+    </div>
     <ng-map id="map" map-type-control="false" zoom-to-include-markers="auto" ng-class="{'mapFadeOut': vm.fade === true}">
         <marker ng-repeat="bathroom in vm.bathrooms" position="{{bathroom.Latitude}},{{bathroom.Longitude}}" data="{{bathroom.Latitude}}" animation="Animation.DROP" title="{{bathroom.BathroomName}}" on-click="vm.toggleBounce(bathroom)" on-mouseover="vm.test()">
         </marker>
@@ -110,7 +124,7 @@
         </div>
     </div>
     <div class="mobilePhoneResults">
-       <button type="button" class="btn btn-default btn-block addButtonBlue resultsButton" ng-click="vm.buttonClick()"><b>Back To Results</b></button>
+        <button type="button" class="btn btn-default btn-block addButtonBlue resultsButton" ng-click="vm.buttonClick()"><b>Back To Results</b></button>
     </div>
     <!-- line modal -->
     <div class="modal fade" style="z-index: 1001" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">

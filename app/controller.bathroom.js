@@ -42,9 +42,9 @@
 
         console.log($window.location.protocol);
 
-        if($window.location.protocol === "http:"){
-            $window.location.assign("https://loocator.herokuapp.com");
-        }
+        // if($window.location.protocol === "http:"){
+        //     $window.location.assign("https://loocator.herokuapp.com");
+        // }
 
         vm.test = function() {
 
@@ -55,7 +55,7 @@
 
         };
 
-        vm.test2 = function(){
+        vm.test2 = function() {
             console.log($window.innerWidth);
         };
 
@@ -315,13 +315,25 @@
         //make the buttons and sidebar expand and retract
         vm.buttonClick = function() {
 
+
+            //need to do this if screen widht less than 433
+            console.log($window.innerWidth);
+            if ($window.innerWidth <= 432) {
+                if (vm.fade === false) {
+                    $("#map").css("height", "88%");
+                    google.maps.event.trigger(vm.map, "resize");
+                } else {
+                    $("#map").css("height", "34%");
+                    google.maps.event.trigger(vm.map, "resize");
+                }
+
+            }
+
             vm.fade = !vm.fade;
             $timeout(function() {
                 vm.button = !vm.button;
             }, 300);
 
-            $("#map").css("height", "94%");
-            google.maps.event.trigger(vm.map, "resize");
         };
 
         //Initialize search for current location
