@@ -410,6 +410,12 @@ textarea {
         background-color: white;
         z-index: 5;
     }
+    /* modal */
+    
+    form.go-right {
+        width: 90%;
+        margin: 20px;
+    }
 }
 
 /* Not mobile */
